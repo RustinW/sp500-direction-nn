@@ -43,6 +43,10 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m pytest -q
 ```
 
+```bash
+.venv/bin/python seed_spread.py
+```
+
 `run.py` goes data → features → walk-forward training → evaluation in about 30
 seconds on a laptop CPU and writes everything to `outputs/`. It reads the
 cached CSVs in `data/`; pass `--refresh` to re-download (Yahoo revises adjusted
@@ -135,6 +139,27 @@ smaller drawdown. Read that with these facts next to it:
 The previous-day-direction strategy shows what costs do to a signal with no
 edge: 2,128 trades turn a 4.95% gross CAGR into −1.49%.
 
+### How much do the results move between training runs?
+
+`seed_spread.py` repeats the whole walk-forward 30 times with a single MLP per
+fold, each from a different seed, then groups those runs into six five-model
+averages (the configuration `run.py` uses). Output is in
+[outputs/seed_spread.md](outputs/seed_spread.md).
+
+| Configuration | Runs | Mean accuracy | Std. dev. | Min | Max | Range |
+|---|---|---|---|---|---|---|
+| Single MLP, new seed each run | 30 | 54.81% | 0.41 pts | 53.80% | 55.36% | 1.56 pts |
+| Average of 5 MLPs, new seeds each run | 6 | 55.16% | 0.22 pts | 54.94% | 55.55% | 0.61 pts |
+| Average of 5 MLPs, fixed seeds (`run.py`) | 2 | 55.58% | 0 | 55.58% | 55.58% | 0 |
+
+- Seed noise in a single model (1.56 points end to end) is four times the
+  0.38-point gap between the headline MLP and always-up. Averaging five seeds
+  cuts the spread by more than half; fixing them removes it.
+- Only 5 of 30 single models and 2 of 6 five-model averages beat always-up
+  (55.20%). The headline 55.58% sits at the top of that range, so part of the
+  small edge reported above is a favourable draw of seeds. This strengthens the
+  conclusion that the model has no real skill.
+
 ## Leakage checklist
 
 | Check | Status | Where |
@@ -176,6 +201,7 @@ edge: 2,128 trades turn a 4.95% gross CAGR into −1.49%.
 
 ```
 run.py                  entry point
+seed_spread.py          diagnostic: run-to-run spread across random seeds
 spdir/config.py         every setting that affects results
 spdir/data.py           download + cache
 spdir/features.py       features and target

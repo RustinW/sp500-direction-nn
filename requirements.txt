@@ -1,0 +1,9 @@
+# Versions used for the results in README.md (Python 3.9, macOS arm64, CPU).
+numpy==2.0.2
+pandas==2.3.3
+scipy==1.13.1
+scikit-learn==1.6.1
+torch==2.8.0
+matplotlib==3.9.4
+yfinance==1.2.0
+pytest

@@ -1,0 +1,4 @@
+strategy,flat_days,mean_next_return_on_flat_days,up_rate_on_flat_days,excess_t_stat,excess_p_value,cagr_without_best_flat_day,best_flat_day_return_avoided
+mlp,96,-0.002977,0.416667,1.317992,0.093789,0.147561,-0.109424
+logreg,199,-0.001432,0.482412,0.638099,0.261722,0.142186,-0.109424
+prev_dir,1895,0.000803,0.560950,-4.865011,0.999999,-0.020823,-0.095677

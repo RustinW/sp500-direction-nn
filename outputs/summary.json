@@ -1,0 +1,600 @@
+{
+  "config": {
+    "ticker": "SPY",
+    "vix_ticker": "^VIX",
+    "start": "2000-01-01",
+    "end": "2026-10-31",
+    "first_test_year": 2010,
+    "last_test_year": 2026,
+    "val_fraction": 0.15,
+    "hidden": [
+      32,
+      16
+    ],
+    "dropout": 0.2,
+    "lr": 0.001,
+    "weight_decay": 0.001,
+    "batch_size": 256,
+    "max_epochs": 200,
+    "patience": 20,
+    "ensemble_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "logreg_C": 1.0,
+    "threshold": 0.5,
+    "cost_bps": 5.0,
+    "trading_days": 252,
+    "seed": 42
+  },
+  "features": [
+    "ret_lag0",
+    "ret_lag1",
+    "ret_lag2",
+    "ret_lag3",
+    "ret_lag4",
+    "mom_5",
+    "mom_10",
+    "mom_21",
+    "mom_63",
+    "vol_5",
+    "vol_21",
+    "vol_63",
+    "rsi_14",
+    "ma_spread_10",
+    "ma_spread_50",
+    "ma_spread_200",
+    "ma_50_200",
+    "vix_log",
+    "vix_chg_1",
+    "vix_chg_5",
+    "vix_vs_ma21",
+    "volume_ratio_21",
+    "range_hl"
+  ],
+  "folds": [
+    {
+      "best_epochs": [
+        2,
+        6,
+        5,
+        9,
+        4
+      ],
+      "n_fit": 1968,
+      "n_val": 347,
+      "year": 2010,
+      "train_start": "2000-10-16",
+      "train_end": "2009-12-30",
+      "test_start": "2010-01-04",
+      "test_end": "2010-12-31",
+      "n_train": 2315,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        1,
+        8,
+        7,
+        7,
+        10
+      ],
+      "n_fit": 2182,
+      "n_val": 385,
+      "year": 2011,
+      "train_start": "2000-10-16",
+      "train_end": "2010-12-30",
+      "test_start": "2011-01-03",
+      "test_end": "2011-12-30",
+      "n_train": 2567,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        4,
+        3,
+        6,
+        4,
+        12
+      ],
+      "n_fit": 2396,
+      "n_val": 423,
+      "year": 2012,
+      "train_start": "2000-10-16",
+      "train_end": "2011-12-29",
+      "test_start": "2012-01-03",
+      "test_end": "2012-12-31",
+      "n_train": 2819,
+      "n_test": 250
+    },
+    {
+      "best_epochs": [
+        2,
+        4,
+        3,
+        1,
+        4
+      ],
+      "n_fit": 2609,
+      "n_val": 460,
+      "year": 2013,
+      "train_start": "2000-10-16",
+      "train_end": "2012-12-28",
+      "test_start": "2013-01-02",
+      "test_end": "2013-12-31",
+      "n_train": 3069,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        1,
+        13,
+        5,
+        3,
+        3
+      ],
+      "n_fit": 2823,
+      "n_val": 498,
+      "year": 2014,
+      "train_start": "2000-10-16",
+      "train_end": "2013-12-30",
+      "test_start": "2014-01-02",
+      "test_end": "2014-12-31",
+      "n_train": 3321,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        1,
+        11,
+        30,
+        5,
+        6
+      ],
+      "n_fit": 3037,
+      "n_val": 536,
+      "year": 2015,
+      "train_start": "2000-10-16",
+      "train_end": "2014-12-30",
+      "test_start": "2015-01-02",
+      "test_end": "2015-12-31",
+      "n_train": 3573,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        3,
+        3,
+        2,
+        1,
+        3
+      ],
+      "n_fit": 3251,
+      "n_val": 574,
+      "year": 2016,
+      "train_start": "2000-10-16",
+      "train_end": "2015-12-30",
+      "test_start": "2016-01-04",
+      "test_end": "2016-12-30",
+      "n_train": 3825,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "n_fit": 3465,
+      "n_val": 612,
+      "year": 2017,
+      "train_start": "2000-10-16",
+      "train_end": "2016-12-29",
+      "test_start": "2017-01-03",
+      "test_end": "2017-12-29",
+      "n_train": 4077,
+      "n_test": 251
+    },
+    {
+      "best_epochs": [
+        26,
+        5,
+        15,
+        2,
+        10
+      ],
+      "n_fit": 3679,
+      "n_val": 649,
+      "year": 2018,
+      "train_start": "2000-10-16",
+      "train_end": "2017-12-28",
+      "test_start": "2018-01-02",
+      "test_end": "2018-12-31",
+      "n_train": 4328,
+      "n_test": 251
+    },
+    {
+      "best_epochs": [
+        22,
+        32,
+        19,
+        22,
+        9
+      ],
+      "n_fit": 3892,
+      "n_val": 687,
+      "year": 2019,
+      "train_start": "2000-10-16",
+      "train_end": "2018-12-28",
+      "test_start": "2019-01-02",
+      "test_end": "2019-12-31",
+      "n_train": 4579,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        21,
+        47,
+        26,
+        11,
+        5
+      ],
+      "n_fit": 4106,
+      "n_val": 725,
+      "year": 2020,
+      "train_start": "2000-10-16",
+      "train_end": "2019-12-30",
+      "test_start": "2020-01-02",
+      "test_end": "2020-12-31",
+      "n_train": 4831,
+      "n_test": 253
+    },
+    {
+      "best_epochs": [
+        1,
+        33,
+        16,
+        23,
+        4
+      ],
+      "n_fit": 4321,
+      "n_val": 763,
+      "year": 2021,
+      "train_start": "2000-10-16",
+      "train_end": "2020-12-30",
+      "test_start": "2021-01-04",
+      "test_end": "2021-12-31",
+      "n_train": 5084,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        1,
+        30,
+        27,
+        25,
+        5
+      ],
+      "n_fit": 4536,
+      "n_val": 800,
+      "year": 2022,
+      "train_start": "2000-10-16",
+      "train_end": "2021-12-30",
+      "test_start": "2022-01-03",
+      "test_end": "2022-12-30",
+      "n_train": 5336,
+      "n_test": 251
+    },
+    {
+      "best_epochs": [
+        20,
+        36,
+        17,
+        24,
+        20
+      ],
+      "n_fit": 4749,
+      "n_val": 838,
+      "year": 2023,
+      "train_start": "2000-10-16",
+      "train_end": "2022-12-29",
+      "test_start": "2023-01-03",
+      "test_end": "2023-12-29",
+      "n_train": 5587,
+      "n_test": 250
+    },
+    {
+      "best_epochs": [
+        9,
+        11,
+        4,
+        7,
+        55
+      ],
+      "n_fit": 4961,
+      "n_val": 876,
+      "year": 2024,
+      "train_start": "2000-10-16",
+      "train_end": "2023-12-28",
+      "test_start": "2024-01-02",
+      "test_end": "2024-12-31",
+      "n_train": 5837,
+      "n_test": 252
+    },
+    {
+      "best_epochs": [
+        3,
+        36,
+        3,
+        7,
+        1
+      ],
+      "n_fit": 5176,
+      "n_val": 913,
+      "year": 2025,
+      "train_start": "2000-10-16",
+      "train_end": "2024-12-30",
+      "test_start": "2025-01-02",
+      "test_end": "2025-12-31",
+      "n_train": 6089,
+      "n_test": 250
+    },
+    {
+      "best_epochs": [
+        36,
+        34,
+        61,
+        33,
+        70
+      ],
+      "n_fit": 5388,
+      "n_val": 951,
+      "year": 2026,
+      "train_start": "2000-10-16",
+      "train_end": "2025-12-30",
+      "test_start": "2026-01-02",
+      "test_end": "2026-10-29",
+      "n_train": 6339,
+      "n_test": 208
+    }
+  ],
+  "pooled": [
+    {
+      "model": "mlp",
+      "n": 4232,
+      "up_rate": 0.5519848771266541,
+      "accuracy": 0.555765595463138,
+      "balanced_accuracy": 0.5062062886538351,
+      "auc": 0.4986360524680654,
+      "pred_up_rate": 0.9773156899810964,
+      "tn": 56,
+      "fp": 1840,
+      "fn": 40,
+      "tp": 2296
+    },
+    {
+      "model": "logreg",
+      "n": 4232,
+      "up_rate": 0.5519848771266541,
+      "accuracy": 0.5536389413988658,
+      "balanced_accuracy": 0.5066145020519045,
+      "auc": 0.496035724091093,
+      "pred_up_rate": 0.9529773156899811,
+      "tn": 103,
+      "fp": 1793,
+      "fn": 96,
+      "tp": 2240
+    },
+    {
+      "model": "prev_dir",
+      "n": 4232,
+      "up_rate": 0.5519848771266541,
+      "accuracy": 0.4974007561436673,
+      "balanced_accuracy": 0.4918835977689151,
+      "auc": 0.4918835977689151,
+      "pred_up_rate": 0.5522211720226843,
+      "tn": 832,
+      "fp": 1064,
+      "fn": 1063,
+      "tp": 1273
+    },
+    {
+      "model": "always_up",
+      "n": 4232,
+      "up_rate": 0.5519848771266541,
+      "accuracy": 0.5519848771266541,
+      "balanced_accuracy": 0.5,
+      "auc": 0.5,
+      "pred_up_rate": 1.0,
+      "tn": 0,
+      "fp": 1896,
+      "fn": 0,
+      "tp": 2336
+    }
+  ],
+  "significance": [
+    {
+      "model": "mlp",
+      "n": 4232,
+      "n_correct": 2352,
+      "accuracy": 0.555765595463138,
+      "accuracy_ci95": [
+        0.5406430716694359,
+        0.5708110726362801
+      ],
+      "p_value_vs_50pct": 2.122322895564802e-13,
+      "always_up_accuracy": 0.5519848771266541,
+      "p_value_vs_always_up_binomial": 0.31607423623693753,
+      "discordant_model_right": 56,
+      "discordant_always_up_right": 40,
+      "p_value_vs_always_up_mcnemar": 0.06267284859424625
+    },
+    {
+      "model": "logreg",
+      "n": 4232,
+      "n_correct": 2343,
+      "accuracy": 0.5536389413988658,
+      "accuracy_ci95": [
+        0.5385108389076049,
+        0.5686929358465876
+      ],
+      "p_value_vs_50pct": 1.5846663680973184e-12,
+      "always_up_accuracy": 0.5519848771266541,
+      "p_value_vs_always_up_binomial": 0.4205817241276785,
+      "discordant_model_right": 103,
+      "discordant_always_up_right": 96,
+      "p_value_vs_always_up_mcnemar": 0.3353521728657897
+    },
+    {
+      "model": "prev_dir",
+      "n": 4232,
+      "n_correct": 2105,
+      "accuracy": 0.4974007561436673,
+      "accuracy_ci95": [
+        0.48222482396401967,
+        0.5125802792495092
+      ],
+      "p_value_vs_50pct": 0.6381609112049321,
+      "always_up_accuracy": 0.5519848771266541,
+      "p_value_vs_always_up_binomial": 0.9999999999995205,
+      "discordant_model_right": 832,
+      "discordant_always_up_right": 1063,
+      "p_value_vs_always_up_mcnemar": 0.999999952469205
+    }
+  ],
+  "backtest": [
+    {
+      "strategy": "buy_and_hold",
+      "costs": "net",
+      "cost_bps": 5.0,
+      "total_return": 7.952854964175067,
+      "cagr": 0.13942514977932374,
+      "ann_vol": 0.17024227958268584,
+      "sharpe": 0.8522169041356702,
+      "max_drawdown": -0.33717252250853624,
+      "time_in_market": 1.0,
+      "n_trades": 1
+    },
+    {
+      "strategy": "buy_and_hold",
+      "costs": "gross",
+      "cost_bps": 0.0,
+      "total_return": 7.957321799184614,
+      "cagr": 0.13945899342787493,
+      "ann_vol": 0.17024259824944069,
+      "sharpe": 0.8523901955680607,
+      "max_drawdown": -0.33717252250853635,
+      "time_in_market": 1.0,
+      "n_trades": 1
+    },
+    {
+      "strategy": "mlp",
+      "costs": "net",
+      "cost_bps": 5.0,
+      "total_return": 10.317756037277784,
+      "cagr": 0.15544038558716045,
+      "ann_vol": 0.165184177133252,
+      "sharpe": 0.9575359031507659,
+      "max_drawdown": -0.24409641708897345,
+      "time_in_market": 0.9773156899810964,
+      "n_trades": 133
+    },
+    {
+      "strategy": "mlp",
+      "costs": "gross",
+      "cost_bps": 0.0,
+      "total_return": 11.094670697401632,
+      "cagr": 0.1600173501093214,
+      "ann_vol": 0.16521356463414927,
+      "sharpe": 0.9813335270878089,
+      "max_drawdown": -0.23499124713493214,
+      "time_in_market": 0.9773156899810964,
+      "n_trades": 133
+    },
+    {
+      "strategy": "logreg",
+      "costs": "net",
+      "cost_bps": 5.0,
+      "total_return": 9.459738836646952,
+      "cagr": 0.15002877739175835,
+      "ann_vol": 0.16236065955715742,
+      "sharpe": 0.9423777214247296,
+      "max_drawdown": -0.2299161517395103,
+      "time_in_market": 0.9529773156899811,
+      "n_trades": 305
+    },
+    {
+      "strategy": "logreg",
+      "costs": "gross",
+      "cost_bps": 0.0,
+      "total_return": 11.181225350612008,
+      "cagr": 0.1605100228831029,
+      "ann_vol": 0.16238534242534894,
+      "sharpe": 0.9981558608434503,
+      "max_drawdown": -0.22910468917952642,
+      "time_in_market": 0.9529773156899811,
+      "n_trades": 305
+    },
+    {
+      "strategy": "prev_dir",
+      "costs": "net",
+      "cost_bps": 5.0,
+      "total_return": -0.2233836377964028,
+      "cagr": -0.014941089232143656,
+      "ann_vol": 0.11057366899697389,
+      "sharpe": -0.08041742175104424,
+      "max_drawdown": -0.3889604195437427,
+      "time_in_market": 0.5522211720226843,
+      "n_trades": 2128
+    },
+    {
+      "strategy": "prev_dir",
+      "costs": "gross",
+      "cost_bps": 0.0,
+      "total_return": 1.251003700662825,
+      "cagr": 0.049500631683114804,
+      "ann_vol": 0.11045493439036809,
+      "sharpe": 0.4930990979182299,
+      "max_drawdown": -0.2828673074860333,
+      "time_in_market": 0.5522211720226843,
+      "n_trades": 2128
+    }
+  ],
+  "backtest_vs_buy_and_hold": [
+    {
+      "strategy": "mlp",
+      "flat_days": 96,
+      "mean_next_return_on_flat_days": -0.002976760056498781,
+      "up_rate_on_flat_days": 0.4166666666666667,
+      "excess_t_stat": 1.3179921013428784,
+      "excess_p_value": 0.09378882210733208,
+      "cagr_without_best_flat_day": 0.14756118061768908,
+      "best_flat_day_return_avoided": -0.10942371626692793
+    },
+    {
+      "strategy": "logreg",
+      "flat_days": 199,
+      "mean_next_return_on_flat_days": -0.0014323346654111474,
+      "up_rate_on_flat_days": 0.4824120603015075,
+      "excess_t_stat": 0.6380987809545281,
+      "excess_p_value": 0.2617219566598138,
+      "cagr_without_best_flat_day": 0.14218647538216111,
+      "best_flat_day_return_avoided": -0.10942371626692793
+    },
+    {
+      "strategy": "prev_dir",
+      "flat_days": 1895,
+      "mean_next_return_on_flat_days": 0.0008033293203298065,
+      "up_rate_on_flat_days": 0.5609498680738786,
+      "excess_t_stat": -4.8650111557681095,
+      "excess_p_value": 0.9999994069363692,
+      "cagr_without_best_flat_day": -0.02082250289629206,
+      "best_flat_day_return_avoided": -0.0956773402848956
+    }
+  ]
+}
